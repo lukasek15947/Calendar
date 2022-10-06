@@ -41,6 +41,11 @@ namespace Calendar
                 ucdays.days(i);
                 dayContainer.Controls.Add(ucdays);
             }
+            if (month == 1)
+            {
+                month = 13;
+                year--;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -77,7 +82,6 @@ namespace Calendar
         {
             dayContainer.Controls.Clear();
             ++month;
-
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
             LBDATE.Text = monthname + " " + year;
 
@@ -94,6 +98,11 @@ namespace Calendar
                 UserControlDays ucdays = new UserControlDays();
                 ucdays.days(i);
                 dayContainer.Controls.Add(ucdays);
+            }
+            if (month == 12)
+            {
+                month = 0;
+                year++;
             }
         }
     }
