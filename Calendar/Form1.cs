@@ -14,6 +14,8 @@ namespace Calendar
     public partial class Form1 : Form
     {
         int month, year;
+
+        public static int static_month, static_year;
         public Form1()
         {
             InitializeComponent();
@@ -23,7 +25,8 @@ namespace Calendar
         {
             dayContainer.Controls.Clear();
             --month;
-
+            static_month = month;
+            static_year = year;
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
             LBDATE.Text = monthname + " " + year;
 
@@ -53,6 +56,11 @@ namespace Calendar
             displaDays();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void displaDays()
         {
             DateTime now = DateTime.Now;
@@ -61,6 +69,9 @@ namespace Calendar
 
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
             LBDATE.Text = monthname + " " + year;
+
+            static_month = month;
+            static_year = year;
 
             DateTime startofthemonth = new DateTime(year, month, 1);
             int days = DateTime.DaysInMonth(year, month);
@@ -82,6 +93,8 @@ namespace Calendar
         {
             dayContainer.Controls.Clear();
             ++month;
+            static_month = month;
+            static_year = year;
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
             LBDATE.Text = monthname + " " + year;
 

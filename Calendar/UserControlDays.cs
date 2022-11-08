@@ -12,6 +12,7 @@ namespace Calendar
 {
     public partial class UserControlDays : UserControl
     {
+        public static string static_day;
         public UserControlDays()
         {
             InitializeComponent();
@@ -24,6 +25,13 @@ namespace Calendar
         public void days(int numday)
         {
             lbdays.Text = numday+"";
+        }
+
+        private void UserControlDays_Click(object sender, EventArgs e)
+        {
+            static_day = lbdays.Text;
+            EventForm eventform = new EventForm();
+            eventform.Show();
         }
     }
 }
