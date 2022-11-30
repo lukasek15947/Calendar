@@ -24,6 +24,11 @@ namespace Calendar
         private void button2_Click(object sender, EventArgs e)
         {
             dayContainer.Controls.Clear();
+            if (month == 1)
+            {
+                month = 13;
+                year--;
+            }
             --month;
             static_month = month;
             static_year = year;
@@ -42,11 +47,6 @@ namespace Calendar
                 UserControlDays ucdays = new UserControlDays();
                 ucdays.days(i);
                 dayContainer.Controls.Add(ucdays);
-            }
-            if (month == 1)
-            {
-                month = 13;
-                year--;
             }
         }
 
@@ -96,6 +96,11 @@ namespace Calendar
         private void button1_Click(object sender, EventArgs e)
         {
             dayContainer.Controls.Clear();
+            if (month == 12)
+            {
+                month = 0;
+                year++;
+            }
             ++month;
             static_month = month;
             static_year = year;
@@ -115,11 +120,6 @@ namespace Calendar
                 UserControlDays ucdays = new UserControlDays();
                 ucdays.days(i);
                 dayContainer.Controls.Add(ucdays);
-            }
-            if (month == 12)
-            {
-                month = 0;
-                year++;
             }
         }
     }
