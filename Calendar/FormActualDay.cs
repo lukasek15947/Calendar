@@ -31,7 +31,7 @@ namespace Calendar
         {
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(Form1.static_month);
             LBDATE.Text = monthname +" " + Form1.static_year;
-            LBDAY.Text = UserControlDays.static_day;
+            LBDAY.Text = UserControlDays.static_day + " den";
             for (int i = 0; i <= 24; ++i)
             {
                 UserControlHours uchours = new UserControlHours();
