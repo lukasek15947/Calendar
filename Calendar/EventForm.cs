@@ -24,7 +24,7 @@ namespace Calendar
         {
             txdate.Text = Form1.static_year+"/"+Form1.static_month + "/" + UserControlDays.static_day;
             txtime.Text = UserControlHours.static_hours + ":";
-            txenddate.Text = Form1.static_year + "/" + Form1.static_month + "/" + UserControlDays.static_day + " ";
+            txenddate.Text = Form1.static_year + "/" + Form1.static_month + "/" + UserControlDays.static_day + " " +"23:";
             txhost.Text = "@gmail.com";
         }
 
@@ -60,6 +60,11 @@ namespace Calendar
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtime.Text = UserControlHours.static_hours + ":" + comboBox1.SelectedItem;
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txenddate.Text = Form1.static_year + "/" + Form1.static_month + "/" + UserControlDays.static_day + " " + "23:" +comboBox2.SelectedItem;
         }
     }
 }
