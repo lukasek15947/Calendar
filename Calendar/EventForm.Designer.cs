@@ -34,9 +34,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.txduration = new System.Windows.Forms.TextBox();
+            this.txenddate = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtime = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txhost = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txdate
@@ -74,7 +77,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(302, 276);
+            this.btnSave.Location = new System.Drawing.Point(302, 345);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 4;
@@ -85,18 +88,18 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 214);
+            this.label3.Location = new System.Drawing.Point(37, 283);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 17);
+            this.label3.Size = new System.Drawing.Size(101, 17);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Doba trvání";
+            this.label3.Text = "Konec události";
             // 
-            // txduration
+            // txenddate
             // 
-            this.txduration.Location = new System.Drawing.Point(40, 234);
-            this.txduration.Name = "txduration";
-            this.txduration.Size = new System.Drawing.Size(337, 22);
-            this.txduration.TabIndex = 6;
+            this.txenddate.Location = new System.Drawing.Point(40, 303);
+            this.txenddate.Name = "txenddate";
+            this.txenddate.Size = new System.Drawing.Size(337, 22);
+            this.txenddate.TabIndex = 6;
             // 
             // label4
             // 
@@ -110,20 +113,107 @@
             // 
             // txtime
             // 
-            this.txtime.Enabled = false;
             this.txtime.Location = new System.Drawing.Point(40, 102);
             this.txtime.Name = "txtime";
             this.txtime.Size = new System.Drawing.Size(337, 22);
-            this.txtime.TabIndex = 7;
+            this.txtime.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(37, 212);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 17);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Přidání hosta";
+            // 
+            // txhost
+            // 
+            this.txhost.Location = new System.Drawing.Point(40, 232);
+            this.txhost.Name = "txhost";
+            this.txhost.Size = new System.Drawing.Size(337, 22);
+            this.txhost.TabIndex = 11;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
+            this.comboBox1.Location = new System.Drawing.Point(383, 102);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(54, 24);
+            this.comboBox1.TabIndex = 12;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // EventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 350);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(449, 403);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txhost);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtime);
-            this.Controls.Add(this.txduration);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txenddate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label2);
@@ -147,8 +237,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txduration;
+        private System.Windows.Forms.TextBox txenddate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtime;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txhost;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
