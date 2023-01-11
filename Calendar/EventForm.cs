@@ -24,7 +24,6 @@ namespace Calendar
         {
             txdate.Text = Form1.static_year+"/"+Form1.static_month + "/" + UserControlDays.static_day;
             txtime.Text = UserControlHours.static_hours + ":";
-            txenddate.Text = Form1.static_year + "/" + Form1.static_month + "/" + UserControlDays.static_day + " " +":";
             txhost.Text = "@gmail.com";
         }
 
@@ -38,7 +37,7 @@ namespace Calendar
             cmd.Parameters.AddWithValue("datum", txdate.Text);
             cmd.Parameters.AddWithValue("cas", txtime.Text);
             cmd.Parameters.AddWithValue("event", txevent.Text);
-            cmd.Parameters.AddWithValue("konec_udalosti", txenddate.Text);
+            cmd.Parameters.AddWithValue("konec_udalosti", maskedTextBox1.Text);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Saved");
             cmd.Dispose();
@@ -47,7 +46,7 @@ namespace Calendar
             message.From = new MailAddress("lukasek15947@gmail.com");
             message.To.Add(new MailAddress(txhost.Text));
             message.Subject = txevent.Text;
-            message.Body = "Ahoj, toto je pozvánka, která se bude konat od " +txdate.Text+" " +txtime.Text + " do " +txenddate.Text;
+            message.Body = "Ahoj, toto je pozvánka, která se bude konat od " +txdate.Text+" " +txtime.Text + " do " +maskedTextBox1.Text;
             SmtpClient client = new SmtpClient();
             client.EnableSsl = true;
             client.Host = "smtp.gmail.com";
@@ -60,11 +59,6 @@ namespace Calendar
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtime.Text = UserControlHours.static_hours + ":" + comboBox1.SelectedItem;
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txenddate.Text += comboBox2.SelectedItem.ToString();
         }
 
         private void txhost_TextChanged(object sender, EventArgs e)

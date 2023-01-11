@@ -34,14 +34,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.txenddate = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtime = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txhost = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // txdate
@@ -95,13 +94,6 @@
             this.label3.Size = new System.Drawing.Size(101, 17);
             this.label3.TabIndex = 5;
             this.label3.Text = "Konec události";
-            // 
-            // txenddate
-            // 
-            this.txenddate.Location = new System.Drawing.Point(40, 303);
-            this.txenddate.Name = "txenddate";
-            this.txenddate.Size = new System.Drawing.Size(337, 22);
-            this.txenddate.TabIndex = 6;
             // 
             // label4
             // 
@@ -206,75 +198,6 @@
             this.comboBox1.TabIndex = 12;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45",
-            "46",
-            "47",
-            "48",
-            "49",
-            "50",
-            "51",
-            "52",
-            "53",
-            "54",
-            "55",
-            "56",
-            "57",
-            "58",
-            "59"});
-            this.comboBox2.Location = new System.Drawing.Point(383, 303);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(54, 24);
-            this.comboBox2.TabIndex = 13;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -284,19 +207,27 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "label6";
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(40, 303);
+            this.maskedTextBox1.Mask = "0000\\/00\\/00 00:00";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(337, 22);
+            this.maskedTextBox1.TabIndex = 15;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            // 
             // EventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 403);
+            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txhost);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtime);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txenddate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label2);
@@ -320,13 +251,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txenddate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtime;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txhost;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }
