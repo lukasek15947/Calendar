@@ -30,8 +30,8 @@ namespace Calendar
         private void UserControlDays_Click(object sender, EventArgs e)
         {
             static_day = lbdays.Text;
-            FormActualDay formActualDay = new FormActualDay();
-            formActualDay.Show();
+            Form2 form = new Form2();
+            form.Show();
         }
     }
 }
