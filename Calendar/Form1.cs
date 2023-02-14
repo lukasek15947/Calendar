@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Calendar
 {
     public partial class Form1 : Form
@@ -63,6 +64,12 @@ namespace Calendar
         private void button4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
+            
         }
 
         private void displaDays()

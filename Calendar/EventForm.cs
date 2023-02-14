@@ -11,6 +11,7 @@ using MySql.Data.MySqlClient;
 using System.Net.Mail;
 using System.Net;
 
+
 namespace Calendar
 {
     public partial class EventForm : Form
@@ -26,34 +27,68 @@ namespace Calendar
             txtime.Text = UserControlHours.static_hours + ":";
             txhost.Text = "@gmail.com";
         }
+        bool IsValidEmail(string email)
+        {
+            var trimmedEmail = email.Trim();
+
+            if (trimmedEmail.EndsWith("."))
+            {
+                return false;
+            }
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == trimmedEmail;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(connString);
-            conn.Open();
-            String sql = "INSERT INTO table_calendar(datum,cas,event,konec_udalosti)values(?,?,?,?)";
-            MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = sql;
-            cmd.Parameters.AddWithValue("datum", txdate.Text);
-            cmd.Parameters.AddWithValue("cas", txtime.Text);
-            cmd.Parameters.AddWithValue("event", txevent.Text);
-            cmd.Parameters.AddWithValue("konec_udalosti", maskedTextBox1.Text);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Saved");
-            cmd.Dispose();
-            conn.Close();
-            MailMessage message = new MailMessage();
-            message.From = new MailAddress("lukasek15947@gmail.com");
-            message.To.Add(new MailAddress(txhost.Text));
-            message.Subject = txevent.Text;
-            message.Body = "Ahoj, toto je pozvánka, která se bude konat od " +txdate.Text+" " +txtime.Text + " do " +maskedTextBox1.Text;
-            SmtpClient client = new SmtpClient();
-            client.EnableSsl = true;
-            client.Host = "smtp.gmail.com";
-            client.Port = 587;
-            client.Credentials = new NetworkCredential("lukasek15947@gmail.com", "jndw gjzb xjxs nmok");
-            client.Send(message);
-            MessageBox.Show("Email byl správně odeslán");
+            try
+            {
+                MySqlConnection conn = new MySqlConnection(connString);
+                conn.Open();
+                String sql = "INSERT INTO table_calendar(datum,cas,event,konec_udalosti,pocet,host)values(?,?,?,?,?,?)";
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("datum", txdate.Text);
+                cmd.Parameters.AddWithValue("cas", txtime.Text);
+                cmd.Parameters.AddWithValue("event", txevent.Text);
+                cmd.Parameters.AddWithValue("konec_udalosti", maskedTextBox1.Text);
+                cmd.Parameters.AddWithValue("pocet", (int)numericUpDown1.Value);
+                cmd.Parameters.AddWithValue("host", txhost.Text);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Saved");
+                cmd.Dispose();
+                conn.Close();
+                if (!IsValidEmail(txhost.Text))
+                {
+                    MessageBox.Show("Zadal jsi špatný email");
+                }
+                else
+                {
+                    MailMessage message = new MailMessage();
+                    message.From = new MailAddress("lukasek15947@gmail.com");
+                    message.To.Add(new MailAddress(txhost.Text));
+                    message.Subject = txevent.Text;
+                    message.Body = "Ahoj, toto je pozvánka, která se bude konat od " + txdate.Text + " " + txtime.Text + " do " + maskedTextBox1.Text;
+                    SmtpClient client = new SmtpClient();
+                    client.EnableSsl = true;
+                    client.Host = "smtp.gmail.com";
+                    client.Port = 587;
+                    client.Credentials = new NetworkCredential("lukasek15947@gmail.com", "jndw gjzb xjxs nmok");
+                    client.Send(message);
+                    MessageBox.Show("Email byl správně odeslán");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.GetType().ToString());
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

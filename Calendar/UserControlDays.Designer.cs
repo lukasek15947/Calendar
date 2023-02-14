@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbdays = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lbdays
@@ -40,6 +42,10 @@
             this.lbdays.Size = new System.Drawing.Size(32, 23);
             this.lbdays.TabIndex = 0;
             this.lbdays.Text = "00";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // UserControlDays
             // 
@@ -59,5 +65,6 @@
         #endregion
 
         private System.Windows.Forms.Label lbdays;
+        private System.Windows.Forms.Timer timer1;
     }
 }
