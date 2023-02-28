@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.lbdays = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lbevent = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbdays
@@ -47,11 +48,20 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // lbevent
+            // 
+            this.lbevent.Location = new System.Drawing.Point(0, 78);
+            this.lbevent.Name = "lbevent";
+            this.lbevent.Size = new System.Drawing.Size(197, 55);
+            this.lbevent.TabIndex = 1;
+            this.lbevent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // UserControlDays
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lbevent);
             this.Controls.Add(this.lbdays);
             this.Name = "UserControlDays";
             this.Size = new System.Drawing.Size(200, 133);
@@ -66,5 +76,6 @@
 
         private System.Windows.Forms.Label lbdays;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lbevent;
     }
 }

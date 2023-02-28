@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Net.Mail;
+using System.Net;
 
 namespace Calendar
 {
     public partial class UserControlHours : UserControl
     {
+        String connString = "server=localhost;user id=root;database=db_calendar;sslmode=none";
         public UserControlHours()
         {
             InitializeComponent();

@@ -102,6 +102,12 @@
     <Compile Include="FormActualDay.Designer.cs">
       <DependentUpon>FormActualDay.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRok.Designer.cs">
+      <DependentUpon>FormRok.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,12 +122,6 @@
     </Compile>
     <Compile Include="UserControlBlank.Designer.cs">
       <DependentUpon>UserControlBlank.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlBlank2.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControlBlank2.Designer.cs">
-      <DependentUpon>UserControlBlank2.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlDays.cs">
       <SubType>UserControl</SubType>
@@ -158,9 +158,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlBlank.resx">
       <DependentUpon>UserControlBlank.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControlBlank2.resx">
-      <DependentUpon>UserControlBlank2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlDays.resx">
       <DependentUpon>UserControlDays.cs</DependentUpon>

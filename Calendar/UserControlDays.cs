@@ -46,7 +46,25 @@ namespace Calendar
 
         private void UserControlDays_Load(object sender, EventArgs e)
         {
-            String sql = "SELECT * FROM table_calendar where datum = ?";
+            
+        }
+        public void days(int numday)
+        {
+            lbdays.Text = numday+"";
+        }
+
+        private void UserControlDays_Click(object sender, EventArgs e)
+        {
+            static_day = lbdays.Text;
+            timer1.Start();
+            FormActualDay form = new FormActualDay();
+            form.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            displayEvent();
+            /*String sql = "SELECT * FROM table_calendar where datum = ?";
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.AddWithValue("datum", Form1.static_year + "-" + Form1.static_month + "-" + lbdays.Text);
@@ -82,24 +100,26 @@ namespace Calendar
             }
             reader.Dispose();
             cmd.Dispose();
+            conn.Close();*/
+        }
+
+        private void displayEvent()
+        {
+            MySqlConnection conn = new MySqlConnection(connString);
+            conn.Open();
+            String sql = "SELECT * FROM table_calendar where datum = ?";
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.AddWithValue("datum", Form1.static_year + "-" + Form1.static_month + "-" + lbdays.Text);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                lbevent.Text = reader["event"].ToString();
+            }
+            reader.Dispose();
+            cmd.Dispose();
             conn.Close();
         }
-        public void days(int numday)
-        {
-            lbdays.Text = numday+"";
-        }
 
-        private void UserControlDays_Click(object sender, EventArgs e)
-        {
-            static_day = lbdays.Text;
-            timer1.Start();
-            FormActualDay form = new FormActualDay();
-            form.Show();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            
-        }
     }
 }
