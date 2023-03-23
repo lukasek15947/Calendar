@@ -14,23 +14,23 @@ namespace Calendar
 {
     public partial class Form1 : Form
     {
-        int month, year;
+        private int month;
+        private int year;
 
         public static int static_month, static_year;
+
         public Form1()
         {
             InitializeComponent();
+            DateTime currentDate = DateTime.Now;
+            month = currentDate.Month;
+            year = currentDate.Year;
+            DisplayMonth(month, year);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void DisplayMonth(int month, int year)
         {
             dayContainer.Controls.Clear();
-            if (month == 1)
-            {
-                month = 13;
-                year--;
-            }
-            --month;
             static_month = month;
             static_year = year;
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
@@ -49,78 +49,60 @@ namespace Calendar
                 ucdays.days(i);
                 dayContainer.Controls.Add(ucdays);
             }
+        }
+
+        private void buttonPredchozi_Click(object sender, EventArgs e)
+        {
+            // Zobrazí předchozí měsíc
+            if (month == 1)
+            {
+                month = 12;
+                year--;
+            }
+            else
+            {
+                month--;
+            }
+            static_month = month;
+            static_year = year;
+            DisplayMonth(month, year);
+        }
+
+        private void buttonDalsi_Click(object sender, EventArgs e)
+        {
+            // Zobrazí následující měsíc
+            if (month == 12)
+            {
+                month = 1;
+                year++;
+            }
+            else
+            {
+                month++;
+            }
+            static_month = month;
+            static_year = year;
+            DisplayMonth(month, year);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            displaDays();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void displaDays()
-        {
-            DateTime now = DateTime.Now;
-            month = now.Month;
-            year = now.Year;
-
-            String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
-            LBDATE.Text = monthname + " " + year;
-
-            static_month = month;
-            static_year = year;
-
-            DateTime startofthemonth = new DateTime(year, month, 1);
-            int days = DateTime.DaysInMonth(year, month);
-            int dayoftheweek = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d"));
-            for(int i=1;i<dayoftheweek;++i)
+            // Zobrazí měsíc zadaný v textovém poli
+            try
             {
-                UserControlBlank userControlBlank = new UserControlBlank();
-                dayContainer.Controls.Add(userControlBlank);
+                int year2 = int.Parse(textBox1.Text);
+
+                year = year2;
+                DisplayMonth(month, year);
             }
-            for(int i = 1; i <= days; ++i)
+            catch (FormatException)
             {
-                UserControlDays ucdays = new UserControlDays();
-                ucdays.days(i);
-                dayContainer.Controls.Add(ucdays);
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            dayContainer.Controls.Clear();
-            if (month == 12)
-            {
-                month = 0;
-                year++;
-            }
-            ++month;
-            static_month = month;
-            static_year = year;
-            String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
-            LBDATE.Text = monthname + " " + year;
-
-            DateTime startofthemonth = new DateTime(year, month, 1);
-            int days = DateTime.DaysInMonth(year, month);
-            int dayoftheweek = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d"));
-            for (int i = 1; i < dayoftheweek; ++i)
-            {
-                UserControlBlank userControlBlank = new UserControlBlank();
-                dayContainer.Controls.Add(userControlBlank);
-            }
-            for (int i = 1; i <= days; ++i)
-            {
-                UserControlDays ucdays = new UserControlDays();
-                ucdays.days(i);
-                dayContainer.Controls.Add(ucdays);
+                MessageBox.Show("Invalid year format. Please enter a valid year.");
             }
         }
     }

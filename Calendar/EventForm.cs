@@ -58,10 +58,10 @@ namespace Calendar
                 cmd.Parameters.AddWithValue("datum", txdate.Text);
                 cmd.Parameters.AddWithValue("cas", txtime.Text);
                 cmd.Parameters.AddWithValue("event", txevent.Text);
-                cmd.Parameters.AddWithValue("konec_udalosti", maskedTextBox1.Text);
-                cmd.Parameters.AddWithValue("pocet", (int)numericUpDown1.Value);
+                cmd.Parameters.AddWithValue("konec_udalosti", konecUdalosti.Text);
+                cmd.Parameters.AddWithValue("pocet", (int)pocetDni.Value);
                 cmd.Parameters.AddWithValue("host", txhost.Text);
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();  
                 MessageBox.Show("Saved");
                 cmd.Dispose();
                 conn.Close();
@@ -75,7 +75,7 @@ namespace Calendar
                     message.From = new MailAddress("lukasek15947@gmail.com");
                     message.To.Add(new MailAddress(txhost.Text));
                     message.Subject = txevent.Text;
-                    message.Body = "Ahoj, toto je pozvánka, která se bude konat od " + txdate.Text + " " + txtime.Text + " do " + maskedTextBox1.Text;
+                    message.Body = "Ahoj, toto je pozvánka na " +txevent.Text +", která se bude konat od " + txdate.Text + " " + txtime.Text + " do " + konecUdalosti.Text;
                     SmtpClient client = new SmtpClient();
                     client.EnableSsl = true;
                     client.Host = "smtp.gmail.com";

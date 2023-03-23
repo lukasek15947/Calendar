@@ -38,33 +38,38 @@
             // 
             this.lbdays.AutoSize = true;
             this.lbdays.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbdays.Location = new System.Drawing.Point(80, 55);
+            this.lbdays.Location = new System.Drawing.Point(60, 45);
+            this.lbdays.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbdays.Name = "lbdays";
-            this.lbdays.Size = new System.Drawing.Size(32, 23);
+            this.lbdays.Size = new System.Drawing.Size(27, 19);
             this.lbdays.TabIndex = 0;
             this.lbdays.Text = "00";
             // 
             // timer1
             // 
+            this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // lbevent
             // 
-            this.lbevent.Location = new System.Drawing.Point(0, 78);
+            this.lbevent.Location = new System.Drawing.Point(0, 63);
+            this.lbevent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbevent.Name = "lbevent";
-            this.lbevent.Size = new System.Drawing.Size(197, 55);
+            this.lbevent.Size = new System.Drawing.Size(148, 45);
             this.lbevent.TabIndex = 1;
             this.lbevent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbevent.Click += new System.EventHandler(this.lbevent_Click);
             // 
             // UserControlDays
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.lbevent);
             this.Controls.Add(this.lbdays);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UserControlDays";
-            this.Size = new System.Drawing.Size(200, 133);
+            this.Size = new System.Drawing.Size(150, 108);
             this.Load += new System.EventHandler(this.UserControlDays_Load);
             this.Click += new System.EventHandler(this.UserControlDays_Click);
             this.ResumeLayout(false);

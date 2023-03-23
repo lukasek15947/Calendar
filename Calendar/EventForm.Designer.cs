@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txdate = new System.Windows.Forms.TextBox();
             this.txevent = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,19 +39,12 @@
             this.txhost = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.pocetDni = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.txdate = new System.Windows.Forms.TextBox();
+            this.konecUdalosti = new System.Windows.Forms.MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pocetDni)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txdate
-            // 
-            this.txdate.Enabled = false;
-            this.txdate.Location = new System.Drawing.Point(40, 43);
-            this.txdate.Name = "txdate";
-            this.txdate.Size = new System.Drawing.Size(337, 22);
-            this.txdate.TabIndex = 0;
             // 
             // txevent
             // 
@@ -210,21 +202,12 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "label6";
             // 
-            // maskedTextBox1
+            // pocetDni
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(40, 303);
-            this.maskedTextBox1.Mask = "0000\\/00\\/00 00:00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(337, 22);
-            this.maskedTextBox1.TabIndex = 15;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(40, 373);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(337, 22);
-            this.numericUpDown1.TabIndex = 16;
+            this.pocetDni.Location = new System.Drawing.Point(40, 373);
+            this.pocetDni.Name = "pocetDni";
+            this.pocetDni.Size = new System.Drawing.Size(337, 22);
+            this.pocetDni.TabIndex = 16;
             // 
             // label7
             // 
@@ -235,14 +218,31 @@
             this.label7.TabIndex = 17;
             this.label7.Text = "Volitelný předstih";
             // 
+            // txdate
+            // 
+            this.txdate.Enabled = false;
+            this.txdate.Location = new System.Drawing.Point(40, 43);
+            this.txdate.Name = "txdate";
+            this.txdate.Size = new System.Drawing.Size(337, 22);
+            this.txdate.TabIndex = 20;
+            // 
+            // konecUdalosti
+            // 
+            this.konecUdalosti.Location = new System.Drawing.Point(40, 303);
+            this.konecUdalosti.Mask = "0000/00/00 00:00";
+            this.konecUdalosti.Name = "konecUdalosti";
+            this.konecUdalosti.Size = new System.Drawing.Size(337, 22);
+            this.konecUdalosti.TabIndex = 21;
+            // 
             // EventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 495);
+            this.Controls.Add(this.konecUdalosti);
+            this.Controls.Add(this.txdate);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.pocetDni);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txhost);
@@ -254,20 +254,17 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txevent);
-            this.Controls.Add(this.txdate);
             this.Name = "EventForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EventForm";
             this.Load += new System.EventHandler(this.EventForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pocetDni)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txdate;
         private System.Windows.Forms.TextBox txevent;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -279,8 +276,9 @@
         private System.Windows.Forms.TextBox txhost;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown pocetDni;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txdate;
+        private System.Windows.Forms.MaskedTextBox konecUdalosti;
     }
 }

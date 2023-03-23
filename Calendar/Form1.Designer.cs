@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.dayContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonPredchozi = new System.Windows.Forms.Button();
+            this.buttonDalsi = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,6 +39,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.LBDATE = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // dayContainer
@@ -50,27 +51,27 @@
             this.dayContainer.Size = new System.Drawing.Size(1533, 935);
             this.dayContainer.TabIndex = 0;
             // 
-            // button1
+            // buttonPredchozi
             // 
-            this.button1.Location = new System.Drawing.Point(4, 4);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Další";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonPredchozi.Location = new System.Drawing.Point(61, 3);
+            this.buttonPredchozi.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonPredchozi.Name = "buttonPredchozi";
+            this.buttonPredchozi.Size = new System.Drawing.Size(100, 28);
+            this.buttonPredchozi.TabIndex = 0;
+            this.buttonPredchozi.Text = "Předchozí";
+            this.buttonPredchozi.UseVisualStyleBackColor = true;
+            this.buttonPredchozi.Click += new System.EventHandler(this.buttonPredchozi_Click);
             // 
-            // button2
+            // buttonDalsi
             // 
-            this.button2.Location = new System.Drawing.Point(112, 4);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Předchozí";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonDalsi.Location = new System.Drawing.Point(169, 3);
+            this.buttonDalsi.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDalsi.Name = "buttonDalsi";
+            this.buttonDalsi.Size = new System.Drawing.Size(100, 28);
+            this.buttonDalsi.TabIndex = 1;
+            this.buttonDalsi.Text = "Další";
+            this.buttonDalsi.UseVisualStyleBackColor = true;
+            this.buttonDalsi.Click += new System.EventHandler(this.buttonDalsi_Click);
             // 
             // label1
             // 
@@ -159,12 +160,22 @@
             this.LBDATE.Text = "MONTH YEAR";
             this.LBDATE.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(875, 9);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(132, 22);
+            this.textBox1.TabIndex = 10;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1579, 1055);
+            this.ClientSize = new System.Drawing.Size(1540, 846);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.LBDATE);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
@@ -173,10 +184,12 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonDalsi);
+            this.Controls.Add(this.buttonPredchozi);
             this.Controls.Add(this.dayContainer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -189,8 +202,8 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel dayContainer;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonPredchozi;
+        private System.Windows.Forms.Button buttonDalsi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -199,6 +212,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label LBDATE;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

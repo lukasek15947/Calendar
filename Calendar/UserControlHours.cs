@@ -15,7 +15,6 @@ namespace Calendar
 {
     public partial class UserControlHours : UserControl
     {
-        String connString = "server=localhost;user id=root;database=db_calendar;sslmode=none";
         public UserControlHours()
         {
             InitializeComponent();
